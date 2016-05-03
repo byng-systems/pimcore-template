@@ -1,0 +1,7 @@
+{
+    "browser": true,
+    "browserify": true,
+    "devel": true,
+    "jquery": true,
+    "node": true
+}

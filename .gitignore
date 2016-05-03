@@ -1,6 +1,49 @@
-composer.phar
-/vendor/
+.npm/
+coverage/
+debug/
+flats/css/
+flats/fonts/
+flats/img/
+flats/js/
+lib-cov/
+logs/
+node_modules/
+pids/
+release/*
+!release/.gitkeep
+var/*
+!var/config/
+var/config/*
+!var/config/cache.spyscape.dist.xml
+!var/config/startup.php
+vendor/
+web/pimcore/
+web/plugins/
+!web/plugins/.gitkeep
+web/var/
+web/website/config/parameters.php
+web/website/static/
+!web/website/static/.gitkeep
+web/website/var/
+web/flats
 
-# Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
-# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
-# composer.lock
+# Ignore Docker volumes, user-specific
+volumes/db/*
+!volumes/db/.gitkeep
+
+# Ignore files installed by Composer
+web/website/controllers/DefaultController.php
+web/website/lib/Website/Controller/Action.php
+web/website/lib/Website/Tool/Text.php
+web/website/views/scripts/default/default.php
+web/index.php
+migrations.yml
+migrations-db.php
+
+*.log
+*.pid
+*.seed
+.dummy
+.lock-wscript
+.node_repl_history
+npm-debug.log

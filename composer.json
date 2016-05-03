@@ -1,0 +1,31 @@
+{
+    "name": "byng/pimcore-tempalte",
+    "description": "Standard Pimcore project template.",
+    "config": {
+        "document-root-path": "./web",
+        "project-root-path": "./"
+    },
+    "require": {
+        "byng/pimcore-doctrine-migrations-library": "^1.0",
+        "doctrine/migrations": "^1.4",
+        "pimcore/pimcore": "^3.1",
+        "seeruk/pimcore-composer-installer": "^1.0",
+        "seeruk/pimcore-di-plugin": "^0.2"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Byng\\Pimcore\\DoctrineMigrations\\Install::install",
+            "SeerUK\\Composer\\PimcoreInstaller::install",
+            "SeerUK\\Composer\\PimcoreInstaller::installIndex",
+            "SeerUK\\Composer\\PimcoreInstaller::installPlugins",
+            "SeerUK\\Composer\\PimcoreInstaller::installWebsite"
+        ],
+        "post-update-cmd": [
+            "Byng\\Pimcore\\DoctrineMigrations\\Install::install",
+            "SeerUK\\Composer\\PimcoreInstaller::install",
+            "SeerUK\\Composer\\PimcoreInstaller::installIndex",
+            "SeerUK\\Composer\\PimcoreInstaller::installPlugins",
+            "SeerUK\\Composer\\PimcoreInstaller::installWebsite"
+        ]
+    }
+}
