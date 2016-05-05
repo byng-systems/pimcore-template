@@ -15,11 +15,11 @@
     "scripts": {
         "post-install-cmd": [
             "Byng\\Pimcore\\Composer\\Installer::install",
-            "Byng\\Pimcore\\DoctrineMigrations\\Install::install"
+            "Byng\\Pimcore\\DoctrineMigrations\\Installer::install"
         ],
         "post-update-cmd": [
             "Byng\\Pimcore\\Composer\\Installer::install",
-            "Byng\\Pimcore\\DoctrineMigrations\\Install::install"
+            "Byng\\Pimcore\\DoctrineMigrations\\Installer::install"
         ]
     }
 }
