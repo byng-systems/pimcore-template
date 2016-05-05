@@ -17,15 +17,16 @@ var/config/*
 !var/config/cache.spyscape.dist.xml
 !var/config/startup.php
 vendor/
+web/flats
 web/pimcore/
 web/plugins/
 !web/plugins/.gitkeep
 web/var/
+web/vendor
 web/website/config/parameters.php
 web/website/static/
 !web/website/static/.gitkeep
 web/website/var/
-web/flats
 
 # Ignore Docker volumes, user-specific
 volumes/db/*
