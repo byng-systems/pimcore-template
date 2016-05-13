@@ -15,6 +15,9 @@ var source = require("vinyl-source-stream");
 var sourcemaps = require("gulp-sourcemaps");
 var uglify = require("gulp-uglify");
 var watch = require("gulp-watch");
+var iconfont = require('gulp-iconfont');
+var iconfontCss = require('gulp-iconfont-css');
+var runTimestamp = Math.round(Date.now()/1000);
 
 var paths = {
     src: {
@@ -63,6 +66,26 @@ gulp.task("fonts", function() {
     gulp.src(paths.src.fonts)
         .pipe(gulp.dest(paths.dst.fonts[0]))
         .pipe(gulp.dest(paths.dst.fonts[1]));
+});
+
+// Iconfont
+
+gulp.task('iconfont', function(){
+  gulp.src(['src/images/icons/*.svg'])
+    .pipe(iconfontCss({
+        fontName: 'icons',
+        path: 'src/scss/modules/_icons.scss',
+        targetPath: '../../../../src/scss/mixins/_icon.scss',
+        fontPath: '/website/static/fonts/'
+    }))
+    .pipe(iconfont({
+        fontName: 'icons',
+        normalize: true,
+        formats: ['ttf', 'eot', 'woff', 'svg'],
+        timestamp: runTimestamp,
+        fontHeight: 1001
+     }))
+    .pipe(gulp.dest('web/website/static/fonts'));
 });
 
 // Images
@@ -152,6 +175,6 @@ gulp.task("server", ["watch"], function() {
     gulp.watch(["flats/**/*.html"], browserSync.reload);
 });
 
-gulp.task("build", ["fonts", "images", "sass", "js-vendor", "js"]);
+gulp.task("build", ["fonts", "iconfont", "images", "sass", "js-vendor", "js"]);
 
 gulp.task("default", ["server"]);
